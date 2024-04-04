@@ -1,0 +1,72 @@
+{
+	"devDependencies": {
+		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
+		"@svgr/webpack": "^8.1.0",
+		"@types/node": "^20.12.2",
+		"@types/react": "^18.2.73",
+		"@types/react-dom": "^18.2.23",
+		"@typescript-eslint/eslint-plugin": "^7.5.0",
+		"@typescript-eslint/parser": "^7.5.0",
+		"autoprefixer": "^10.4.19",
+		"clean-webpack-plugin": "^4.0.0",
+		"commitizen": "^4.3.0",
+		"cross-env": "^7.0.3",
+		"css-loader": "^6.10.0",
+		"cssnano": "^6.1.2",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-eslint-comments": "^3.2.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-jsx-a11y": "^6.8.0",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-react": "^7.34.1",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"html-webpack-plugin": "^5.6.0",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.2",
+		"merge": "^2.1.1",
+		"mini-css-extract-plugin": "^2.8.1",
+		"postcss-loader": "^8.1.1",
+		"prettier": "^3.2.5",
+		"react-refresh": "^0.14.0",
+		"sass": "^1.72.0",
+		"sass-loader": "^14.1.1",
+		"style-loader": "^3.3.4",
+		"stylelint": "^16.3.1",
+		"stylelint-config-standard": "^36.0.0",
+		"stylelint-order": "^6.0.4",
+		"ts-loader": "^9.5.1",
+		"typescript": "^5.4.3",
+		"url-loader": "^4.1.1",
+		"webpack": "^5.91.0",
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^4.15.1"
+	},
+	"scripts": {
+		"build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.js --env env=prod",
+		"start": "webpack serve --config webpack/webpack.config.js --env env=dev",
+		"stylelint": "stylelint \"src/**/*.{css,scss}\"",
+		"stylelint:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
+		"lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --ignore-path ./.prettierignore",
+		"check": "npm run stylelint:fix && npm run lint && npm run format",
+		"commit": "npm run check && cz",
+		"prepare": "husky install"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"dependencies": {
+		"clsx": "^2.1.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"lint-staged": {
+		"*.{css,scss}": "npm run stylelint:fix",
+		"*.{js,jsx,ts,tsx}": "npm run lint",
+		"*.{js,jsx,ts,tsx,json,css,scss,md}": "npm run format"
+	}
+}
