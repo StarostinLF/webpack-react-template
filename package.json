@@ -45,7 +45,7 @@
 	},
 	"scripts": {
 		"build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.js --env env=prod",
-		"start": "webpack serve --config webpack/webpack.config.js --env env=dev",
+		"start": "cross-env NODE_ENV=development webpack serve --config webpack/webpack.config.js --env env=dev",
 		"stylelint": "stylelint \"src/**/*.{css,scss}\"",
 		"stylelint:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
 		"lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
@@ -61,6 +61,7 @@
 	},
 	"dependencies": {
 		"clsx": "^2.1.0",
+		"dotenv-webpack": "^8.1.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},

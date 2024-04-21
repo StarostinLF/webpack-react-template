@@ -3,7 +3,8 @@ const path = require('path'), // Конвертация относительно
 	HTMLWebpackPlugins = require('html-webpack-plugin'),
 	MiniCssExtractPlugin = require('mini-css-extract-plugin'),
 	{ CleanWebpackPlugin } = require('clean-webpack-plugin'),
-	webpack = require('webpack')
+	webpack = require('webpack'),
+	Dotenv = require('dotenv-webpack')
 
 module.exports = {
 	entry: path.resolve(__dirname, '..', './src/index.tsx'), // Точка входа в приложение содержит абсолютный путь к index.ts
@@ -85,6 +86,7 @@ module.exports = {
 		new webpack.EnvironmentPlugin({
 			NODE_ENV: 'development', // Значение по умолчанию 'development', если переменная process.env.NODE_ENV не передана при вызове сборки
 		}),
+		new Dotenv(),
 	],
 }
 
