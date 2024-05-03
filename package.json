@@ -5,6 +5,7 @@
 		"@types/node": "^20.12.2",
 		"@types/react": "^18.2.73",
 		"@types/react-dom": "^18.2.23",
+		"@types/react-router-dom": "^5.3.3",
 		"@typescript-eslint/eslint-plugin": "^7.5.0",
 		"@typescript-eslint/parser": "^7.5.0",
 		"autoprefixer": "^10.4.19",
@@ -66,6 +67,7 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-redux": "^9.1.1",
+		"react-router-dom": "^6.23.0",
 		"redux": "^5.0.1"
 	},
 	"lint-staged": {
