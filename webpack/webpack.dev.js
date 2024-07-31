@@ -8,7 +8,7 @@ module.exports = {
 		static: path.resolve(__dirname, './dist'), // Путь, куда "смотрит" режим разработчика
 		// compress: true, // Это ускорит загрузку в режиме разработки
 		port: 8080, // Порт для открытия сайта на localhost:8080
-		open: true, // Сайт открывается при запуске npm run dev
+		open: false, // Сайт не открывается атвоматически при запуске npm start
 		hot: true,
 	},
 	plugins: [new ReactRefreshWebpackPlugin()],
