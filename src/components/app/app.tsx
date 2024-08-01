@@ -1,4 +1,4 @@
-import './app.scss'
+//import styles from './app.module.scss'
 
 export default function App() {
 	return <></>
