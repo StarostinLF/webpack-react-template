@@ -1,3 +1,3 @@
-# Webpack React
+# Webpack React Template
 
 ### Шаблонная сборка React-приложения на Webpack по курсу Яндекс Практикума «Фронтенд-разработчик»
