@@ -96,6 +96,7 @@ const commonConfig = {
 			outputPath: 'static/favicons/',
 			prefix: 'static/favicons/',
 			inject: true,
+			mode: production ? 'webapp' : 'light',
 		}),
 	],
 }
