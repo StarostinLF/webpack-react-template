@@ -6,8 +6,8 @@ export default tseslint.config(
 	eslint.configs.recommended,
 	...tseslint.configs.strict,
 	...tseslint.configs.stylistic,
+	{ ignores: ['node_modules', 'public', 'build', 'dist', 'package*.json'] },
 	{
-		ignores: ['node_modules', 'public', 'build', 'dist', 'package*.json'],
 		plugins: { reacthooks },
 		rules: {
 			'no-useless-escape': 'off',
