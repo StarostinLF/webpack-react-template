@@ -6,7 +6,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import {
-	createBrowserRouter,
+	createHashRouter,
 	createRoutesFromElements,
 	Route,
 	RouterProvider,
@@ -19,7 +19,7 @@ import App from './components/app/app'
 import MainPage from './pages/main-page/main-page'
 import SecondPage from './pages/page-2/second-page'
 
-const router = createBrowserRouter(
+const router = createHashRouter(
 	createRoutesFromElements(
 		<Route path='/' element={<App />}>
 			<Route index element={<MainPage />} />
