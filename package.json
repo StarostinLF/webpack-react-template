@@ -1,5 +1,5 @@
 {
-	"name": "webpack-react-template",
+	"name": "webpack-react-spa-template",
 	"version": "2024",
 	"dependencies": {
 		"@bem-react/classname": "*",
