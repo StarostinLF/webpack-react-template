@@ -46,43 +46,43 @@
 
 ## Скрипты
 
-- `start`: Запуск сервера разработки:
+- `start`: запуск сервера разработки:
 
 ```
  npm run start
 ```
 
-- `eslint`: Запуск `ESLint` для проверки кода:
+- `eslint`: запуск `ESLint` для проверки кода:
 
 ```
  npm run eslint
 ```
 
-- `stylelint`: Запуск `Stylelint` для проверки стилей:
+- `stylelint`: запуск `Stylelint` для проверки стилей:
 
 ```
  npm run stylelint
 ```
 
-- `format`: Форматирование кода с помощью `Prettier`:
+- `format`: форматирование кода с помощью `Prettier`:
 
 ```
  npm run format
 ```
 
-- `check`: Запуск всех проверок (`ESLint`, `Stylelint` и `Prettier`):
+- `check`: запуск всех проверок (`ESLint`, `Stylelint` и `Prettier`):
 
 ```
  npm run check
 ```
 
-- `build`: Сборка проекта для продакшена:
+- `build`: сборка проекта для продакшена:
 
 ```
  npm run build
 ```
 
-- `deploy`: Проверка, сборка и деплой проекта:
+- `deploy`: проверка, сборка и деплой проекта:
 
 ```
  npm run deploy
@@ -92,16 +92,16 @@
 
 Конфигурация Webpack находится в файле [`webpack.config.mjs`](webpack.config.mjs). Основные моменты:
 
-- `entry`: Точка входа в приложение;
-- `output`: Настройки выходных файлов;
-- `module`: Правила для обработки различных типов файлов;
-- `plugins`: Плагины для расширения функциональности `Webpack`.
+- `entry`: точка входа в приложение;
+- `output`: настройки выходных файлов;
+- `module`: правила для обработки различных типов файлов;
+- `plugins`: плагины для расширения функциональности `Webpack`.
 
 ## Линтинг и форматирование
 
-- `ESLint`: Конфигурация находится в файле [`eslint.config.mjs`](eslint.config.mjs);
-- `Stylelint`: Конфигурация находится в файле [`stylelint.config.mjs`](stylelint.config.mjs);
-- `Prettier`: Конфигурация находится в файле [`prettier.config.mjs`](prettier.config.mjs).
+- `ESLint`: конфигурация находится в файле [`eslint.config.mjs`](eslint.config.mjs);
+- `Stylelint`: конфигурация находится в файле [`stylelint.config.mjs`](stylelint.config.mjs);
+- `Prettier`: конфигурация находится в файле [`prettier.config.mjs`](prettier.config.mjs).
 
 ## Поддержка `SCSS`
 
