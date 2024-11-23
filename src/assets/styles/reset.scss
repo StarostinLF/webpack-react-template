@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: var(--transition);
+}
+
+button {
+	font-size: inherit;
+	font-family: inherit;
+	transition: var(--transition);
+}
+
+a,
+button {
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}

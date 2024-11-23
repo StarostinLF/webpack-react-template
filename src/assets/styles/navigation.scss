@@ -1,0 +1,27 @@
+@use './mixins';
+
+.navigation {
+	padding-block: 20px;
+
+	@include mixins.box-type(flex, wrap, space-between, center, null, 20px);
+
+	&__logo {
+		@include mixins.box-type(flex, null, null, center, null, 10px);
+	}
+
+	&__menu {
+		@include mixins.box-type(flex, null, space-between, center, null, 30px);
+
+		@media screen and (width <= 576px) {
+			align-items: center !important;
+		}
+	}
+
+	&__container {
+		@include mixins.box-type(flex, null, null, center, null, 50px);
+	}
+
+	@media screen and (width <= 576px) {
+		flex-direction: column;
+	}
+}

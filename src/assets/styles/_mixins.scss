@@ -1,0 +1,36 @@
+@mixin box-type(
+	$display,
+	$flex-wrap,
+	$justify-content,
+	$align-items,
+	$flex-direction,
+	$gap
+) {
+	display: $display;
+	flex-flow: $flex-direction $flex-wrap;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	gap: $gap;
+}
+
+@mixin font-settings($size, $weight, $font-family) {
+	font-weight: $weight;
+	font-size: $size;
+	font-family: $font-family;
+	line-height: normal;
+}
+
+@mixin container(
+	$min-inline-size: 320,
+	$max-inline-size: 1440,
+	$media-padding-x: 0
+) {
+	inline-size: 100%;
+	min-inline-size: $min-inline-size;
+	max-inline-size: $max-inline-size;
+	margin: 0 auto;
+
+	@media screen and (max-width: #{ $max-inline-size + $media-padding-x }) {
+		padding-inline: $media-padding-x;
+	}
+}

@@ -1,0 +1,9 @@
+@use '../../assets/styles/mixins';
+
+.main {
+	@include mixins.box-type(flex, null, center, center, column, null);
+}
+
+.form {
+	@include mixins.box-type(flex, null, null, center, column, 20px);
+}

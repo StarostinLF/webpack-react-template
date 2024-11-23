@@ -1,0 +1,5 @@
+@use '../../assets/styles/mixins';
+
+.counter {
+	@include mixins.box-type(flex, null, space-between, center, null, 20px);
+}

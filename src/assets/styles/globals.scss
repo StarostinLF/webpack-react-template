@@ -1,25 +1,34 @@
-@import url('./_fonts.scss');
+@use './mixins';
 
 :root {
 	--main-font-family: 'Inter', sans-serif;
-	--secondary-font-family: 'Roboto', sans-serif;
+	--title-font-family: 'Roboto', sans-serif;
 	--main-font-size: clamp(0.75rem, 0.7rem + 0.25vw, 1rem);
+	--title-font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.75rem);
 	--page-background: #ffffff;
+	--button-background: #23272f;
 	--text-color: #000000;
+	--logo-color: #58c4dc;
 	--transition: 0.2s ease;
 }
 
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
+html,
+body,
+#root {
+	block-size: 100%;
+	min-block-size: 100vh;
+
+	@include mixins.font-settings(
+		var(--main-font-size),
+		400,
+		var(--main-font-family)
+	);
+	@include mixins.box-type(flex, null, null, null, column, null);
+	@include mixins.container(null, null, null);
 }
 
 body {
 	color: var(--text-color);
-	font-weight: 400;
-	font-size: var(--main-font-size);
-	font-family: var(--main-font-family);
 	background: var(--page-background);
 }
 
@@ -28,30 +37,27 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p,
-ul,
-ol,
-li {
-	margin: 0;
-	padding: 0;
+h6 {
+	@include mixins.font-settings(
+		var(--title-font-size),
+		600,
+		var(--title-font-family)
+	);
 }
 
-a {
-	color: inherit;
-	text-decoration: none;
-	cursor: pointer;
-	transition: var(--transition);
+.container {
+	@include mixins.container(320px, 1440px, 10px);
 }
 
-button {
-	font-size: inherit;
-	font-family: inherit;
-	cursor: pointer;
-	transition: var(--transition);
+.main {
+	flex: 1 1 auto;
 }
 
-img {
-	width: 100%;
-	height: 100%;
+.section {
+	@include mixins.box-type(flex, null, null, null, column, 20px);
+
+	&__title {
+		text-align: center;
+		text-transform: uppercase;
+	}
 }

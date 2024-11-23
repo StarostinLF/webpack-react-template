@@ -1,0 +1,11 @@
+.button {
+	padding: 10px 20px;
+	background: none;
+	border: 1px solid var(--text-color);
+	border-radius: 20px;
+
+	&:hover {
+		color: var(--logo-color);
+		background: var(--button-background);
+	}
+}

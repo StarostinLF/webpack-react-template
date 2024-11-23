@@ -1,19 +1,25 @@
-export const checkResponse = async <T>(result: Response): Promise<T> => {
+const createEmptyResponse = <T extends object>(): T => {
+	return {} as unknown as T
+}
+
+export const checkResponse = async <T extends object>(
+	result: Response
+): Promise<T> => {
 	if (result.ok) {
 		const text = await result.text()
 
-		if (!text) return {} as unknown as T
+		if (!text) return createEmptyResponse<T>()
 
 		try {
-			const data = JSON.parse(text)
+			const data = JSON.parse(text) as T
 
-			if (Object.keys(data).length === 0) return {} as unknown as T
+			if (Object.keys(data).length === 0) return createEmptyResponse<T>()
 
 			return data
-		} catch (error) {
-			return Promise.reject('Ошибка парсинга JSON')
+		} catch {
+			return Promise.reject(new Error('Ошибка парсинга JSON'))
 		}
 	}
 
-	return Promise.reject(`Ошибка: ${result.status}`)
+	return Promise.reject(new Error(`Ошибка: ${result.status}`))
 }

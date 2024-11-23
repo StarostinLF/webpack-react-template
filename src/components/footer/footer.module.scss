@@ -1,0 +1,9 @@
+@use '../../assets/styles/mixins';
+
+.navigation {
+	@include mixins.box-type(null, null, start, null, null, 50px);
+
+	&__menu {
+		@include mixins.box-type(null, null, null, start, column, null);
+	}
+}

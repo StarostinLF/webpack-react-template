@@ -4,18 +4,20 @@ import {
 	useSelector as selectorHook,
 } from 'react-redux'
 import type { TypedUseSelectorHook } from 'react-redux'
-import _ from 'lodash'
+import debounce from 'lodash/debounce'
 
-/*const saveToLocalStorage = (state: RootState) => {
+import { counterSlice } from './slices/counter-slice'
+
+const saveToLocalStorage = (state: RootState) => {
 	try {
-		const { user } = state
+		const counters = state.counters
 
-		if (!user.error) {
-			const appData = JSON.stringify({
-				user: user.user,
+		if (!counters.error) {
+			const data = JSON.stringify({
+				allApiCounters: counters.allApiCounters,
 			})
 
-			localStorage.setItem('localData', appData)
+			localStorage.setItem('localData', data)
 		} else localStorage.removeItem('localData')
 	} catch (e) {
 		console.warn('Could not save state', e)
@@ -28,11 +30,9 @@ const loadFromLocalStorage = () => {
 
 		if (appData === null) return undefined
 
-		const { user } = JSON.parse(appData)
+		const { savedData } = JSON.parse(appData)
 
-		return {
-			user: { ...userState, user },
-		}
+		return savedData
 	} catch (e) {
 		console.warn('Could not load state', e)
 
@@ -40,24 +40,24 @@ const loadFromLocalStorage = () => {
 	}
 }
 
-const preloadedState = loadFromLocalStorage()*/
+const preloadedState = loadFromLocalStorage()
 
-const rootReducer = combineSlices(/* вставить слайсы */)
+const rootReducer = combineSlices(counterSlice)
 
 export const store = configureStore({
 	reducer: rootReducer,
-	//preloadedState,
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
+	preloadedState,
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 })
 
 store.subscribe(
-	_.debounce(() => {
-		//saveToLocalStorage(store.getState())
-	}, 1000)
+	debounce(() => {
+		saveToLocalStorage(store.getState())
+	}, 500)
 )
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
-export const useDispatch: () => AppDispatch = dispatchHook
-export const useSelector: TypedUseSelectorHook<RootState> = selectorHook
+export const useAppDispatch: () => AppDispatch = dispatchHook
+export const useAppSelector: TypedUseSelectorHook<RootState> = selectorHook

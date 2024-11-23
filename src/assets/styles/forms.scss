@@ -1,0 +1,32 @@
+@use '../../assets/styles/mixins';
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+textarea {
+	max-width: 50vw;
+}
+
+.form {
+	@include mixins.box-type(flex, null, space-between, center, null, 20px);
+}
+
+.fieldset {
+	@include mixins.box-type(flex, null, null, center, column, 20px);
+}
+
+.input {
+	width: 100px;
+	text-align: center;
+}
+
+.error-text {
+	color: red;
+}
+
+.success-text {
+	color: green;
+}

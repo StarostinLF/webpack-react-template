@@ -1,17 +1,39 @@
-import { createRoot } from 'react-dom/client'
-import { StrictMode } from 'react'
-//import { Provider } from 'react-redux'
-//import { store } from './store/store'
-import App from './components/app/app'
+import './assets/styles/reset.scss'
 import './assets/styles/globals.scss'
+import './assets/styles/index.scss'
 
-const domNode = document.querySelector('#root') as HTMLDivElement,
-	root = createRoot(domNode)
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { Provider } from 'react-redux'
+import {
+	createBrowserRouter,
+	createRoutesFromElements,
+	Route,
+	RouterProvider,
+} from 'react-router'
+import { HelmetProvider } from 'react-helmet-async'
 
-root.render(
+import { store } from './services/store'
+
+import App from './components/app/app'
+import MainPage from './pages/main-page/main-page'
+import SecondPage from './pages/page-2/second-page'
+
+const router = createBrowserRouter(
+	createRoutesFromElements(
+		<Route path='/' element={<App />}>
+			<Route index element={<MainPage />} />
+			<Route path='/page-2' element={<SecondPage />} />
+		</Route>
+	)
+)
+
+createRoot(document.querySelector('#root') as HTMLDivElement).render(
 	<StrictMode>
-		{/*<Provider store={store}>*/}
-		<App />
-		{/*</Provider>*/}
+		<Provider store={store}>
+			<HelmetProvider>
+				<RouterProvider router={router} />
+			</HelmetProvider>
+		</Provider>
 	</StrictMode>
 )

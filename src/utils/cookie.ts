@@ -13,7 +13,7 @@ export const getCookie = (name: string): string | undefined => {
 export const setCookie = (
 	name: string,
 	value: string,
-	props: { [key: string]: string | number | Date | boolean } = {}
+	props: Record<string, string | number | Date | boolean> = {}
 ) => {
 	props = {
 		path: '/',
